@@ -1,4 +1,4 @@
-# EmotionDetection# Emotion Detection - Enhanced Version with More Data
+# Emotion Detection - Enhanced Version with More Data
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -145,3 +145,26 @@ def predict_emotion(text):
     for emotion, prob in sorted_probs:
         print(f"   {emotion}: {prob:.2%}")
     
+    return prediction, emotion_probs
+
+# 🔧 INTERACTIVE TESTING
+print("\n" + "🎮" * 25)
+print("🚀 INTERACTIVE EMOTION DETECTION")
+print("🎮" * 25)
+print("💡 Type any text to analyze its emotion")
+print("💡 Type 'quit' or 'exit' to stop\n")
+
+while True:
+    user_input = input("🎯 Enter your text: ")
+    
+    if user_input.lower() in ['quit', 'exit', 'stop']:
+        print("👋 Thank you for testing! Goodbye!")
+        break
+    
+    if user_input.strip() == "":
+        print("⚠️  Please enter some text")
+        continue
+    
+    print("\n" + "="*50)
+    predict_emotion(user_input)
+    print("="*50 + "\n")
